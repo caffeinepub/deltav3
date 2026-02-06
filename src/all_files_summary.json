@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Feature evidence report mapping app features to files, components, tests, and confidence levels.",
+  "frontend-file-summaries.txt": "JSON-like mapping of frontend file paths to short human-written summaries.",
+  "frontend/index.css": "Tailwind and OKLCH-based global styles defining layout variables and color tokens for light/dark themes.",
+  "frontend/index.html": "HTML entry point setting metadata, title, and mounting the React app.",
+  "frontend/src/App.tsx": "Main React component routing between Search and Settings inside ThemeProvider and layout.",
+  "frontend/src/components/branding/Logo.tsx": "Renders the DeltaV3 logo image with configurable sizing.",
+  "frontend/src/components/layout/AppLayout.tsx": "Global layout with header, logo, nav buttons, main container, and footer.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and refreshing an authenticated/anonymous backend actor via Internet Identity.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity auth provider and hooks handling login, logout, stored identity, and status.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder hook exposing backend actor; no backend queries implemented.",
+  "frontend/src/index.css": "Tailwind base styles and OKLCH color variables for black‑and‑purple theme with dynamic theming support.",
+  "frontend/src/lib/duckduckgo.ts": "Client helper querying DuckDuckGo Instant Answer API and extracting structured search results.",
+  "frontend/src/main.tsx": "Bootstraps the React app, providing React Query and Internet Identity context before rendering App.",
+  "frontend/src/pages/SearchPage.tsx": "Implements a DuckDuckGo-powered search UI with input, loading and error states, and result display.",
+  "frontend/src/pages/SettingsPage.tsx": "Provides UI to customize the primary theme color using presets or manual input, with local persistence.",
+  "frontend/src/theme/ThemeProvider.tsx": "Manages theme state, converts hex colors to OKLCH, persists the primary color, and updates CSS variables.",
+  "frontend/tailwind.config.js": "Configures Tailwind with OKLCH-based color tokens, custom animations, container settings, and plugins.",
+  "project_state.json": "Defines the project’s state, goals, existing features, and architectural constraints for the DeltaV3 site."
+}

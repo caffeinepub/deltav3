@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main application component managing page navigation between Search and Settings, wrapped with ThemeProvider for global theme customization.",
+  "frontend/src/components/layout/AppLayout.tsx": "Reusable layout component providing consistent header with logo/branding, navigation buttons, main content area, and footer across all pages.",
+  "frontend/src/components/branding/Logo.tsx": "Simple logo component that renders the uploaded DeltaV3 image asset with configurable size and styling.",
+  "frontend/src/pages/SearchPage.tsx": "Search page with DuckDuckGo integration featuring query input, loading states, error handling with fallback to open DuckDuckGo directly, and results display with clickable links.",
+  "frontend/src/pages/SettingsPage.tsx": "Settings page allowing users to customize the primary accent color via color picker or presets, with theme changes applied immediately and persisted to localStorage.",
+  "frontend/src/lib/duckduckgo.ts": "Client-side helper function to query DuckDuckGo Instant Answer API, normalize results, and handle CORS/fetch errors with clear messaging for UI fallback.",
+  "frontend/src/theme/ThemeProvider.tsx": "React context provider managing theme state (primary color), converting hex colors to OKLCH format, applying CSS variables dynamically, and persisting preferences to localStorage.",
+  "frontend/src/hooks/useQueries.ts": "Minimal placeholder file for backend queries (currently unused as all search is client-side via DuckDuckGo).",
+  "frontend/src/index.css": "Global styles with OKLCH color system defining black background with purple accent theme tokens for both light and dark modes.",
+  "frontend/index.html": "HTML entry point with updated title and meta description for DeltaV3.org branding.",
+  "frontend/src/main.tsx": "Application entry point rendering the React app with QueryClient and InternetIdentity providers."
+}

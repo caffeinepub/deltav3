@@ -1,0 +1,106 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-deltav3-org-branded-ui-shell-with-a-black-and-purple-default-theme-including-global-layout-header-main-footer-page-title-metadata-and-a-clean-domain-style-aesthetic-consistent-across-all-screens",
+      "featureTitle": "Create the DeltaV3.org branded UI shell with a black-and-purple default theme, including global layout (header/main/footer), page title/metadata, and a clean “domain-style” aesthetic consistent across all screens.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-the-uploaded-image-148783974-png-as-the-site-logo-in-the-header-and-any-other-appropriate-branding-locations-without-altering-the-image-content",
+      "featureTitle": "Use the uploaded image (148783974.png) as the site logo in the header and any other appropriate branding locations without altering the image content.",
+      "files": [
+        "frontend/src/components/branding/Logo.tsx",
+        "frontend/src/components/layout/AppLayout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-search-page-that-queries-duckduckgo-and-displays-results-in-app-using-a-legal-public-endpoint-e-g-duckduckgo-instant-answer-api-including-a-search-input-submit-action-loading-state-error-state-and-a-results-list-with-clickable-links",
+      "featureTitle": "Implement a search page that queries DuckDuckGo and displays results in-app using a legal/public endpoint (e.g., DuckDuckGo Instant Answer API), including a search input, submit action, loading state, error state, and a results list with clickable links.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/lib/duckduckgo.ts",
+        "frontend/src/pages/SearchPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-settings-tab-page-where-users-can-customize-the-theme-colors-at-minimum-the-primary-accent-color-used-for-ui-highlights-and-apply-changes-immediately-across-the-app",
+      "featureTitle": "Add a Settings tab/page where users can customize the theme colors (at minimum the primary accent color used for UI highlights) and apply changes immediately across the app.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx",
+        "frontend/src/pages/SettingsPage.tsx",
+        "frontend/src/theme/ThemeProvider.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-app-does-not-store-users-search-queries-history-on-the-site-no-backend-persistence-and-no-local-search-history-feature",
+      "featureTitle": "Ensure the app does not store users’ search queries/history on the site (no backend persistence and no local “search history” feature).",
+      "files": [
+        "frontend/src/lib/duckduckgo.ts",
+        "frontend/src/pages/SearchPage.tsx",
+        "frontend/src/theme/ThemeProvider.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

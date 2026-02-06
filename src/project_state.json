@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a legal search-themed website branded as DeltaV3 / DeltaV3.org with a black-and-purple default theme, a DuckDuckGo-based search UI, customizable theme settings, and no on-site search history storage (explicitly excluding proxy/unblocking/cloaking functionality).",
+  "architectural_notes": [
+    "Do not implement proxying, cloaking, or bypassing of network/content restrictions; only provide a standard search UI using allowed DuckDuckGo mechanisms.",
+    "Do not persist search queries/history server-side; keep searches ephemeral (optionally only in client state)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-the-deltav3-org-branded-ui-shell-with-a-black-and-purple-default-theme-including-global-layout-header-main-footer-page-title-metadata-and-a-clean-domain-style-aesthetic-consistent-across-all-screens",
+      "title": "Create the DeltaV3.org branded UI shell with a black-and-purple default theme, including global layout (header/main/footer), page title/metadata, and a clean “domain-style” aesthetic consistent across all screens.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-the-uploaded-image-148783974-png-as-the-site-logo-in-the-header-and-any-other-appropriate-branding-locations-without-altering-the-image-content",
+      "title": "Use the uploaded image (148783974.png) as the site logo in the header and any other appropriate branding locations without altering the image content.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-search-page-that-queries-duckduckgo-and-displays-results-in-app-using-a-legal-public-endpoint-e-g-duckduckgo-instant-answer-api-including-a-search-input-submit-action-loading-state-error-state-and-a-results-list-with-clickable-links",
+      "title": "Implement a search page that queries DuckDuckGo and displays results in-app using a legal/public endpoint (e.g., DuckDuckGo Instant Answer API), including a search input, submit action, loading state, error state, and a results list with clickable links.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-settings-tab-page-where-users-can-customize-the-theme-colors-at-minimum-the-primary-accent-color-used-for-ui-highlights-and-apply-changes-immediately-across-the-app",
+      "title": "Add a Settings tab/page where users can customize the theme colors (at minimum the primary accent color used for UI highlights) and apply changes immediately across the app.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-app-does-not-store-users-search-queries-history-on-the-site-no-backend-persistence-and-no-local-search-history-feature",
+      "title": "Ensure the app does not store users’ search queries/history on the site (no backend persistence and no local “search history” feature).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create website branded as DeltaV3.org with a cool domain-style design and black/purple default theme",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Integrate DuckDuckGo-based search UI to fetch and display search results (legal/allowed usage)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add Settings tab to allow users to change theme colors",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Use provided image as site logo",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Do not store users' search queries/history on the site",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "DeltaV3",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

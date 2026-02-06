@@ -1,0 +1,155 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "DeltaV3.org branded DuckDuckGo search UI with theme settings (no on-site search history)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a DeltaV3.org branded UI shell with black-and-purple default theme, consistent layout, and document metadata.",
+      "acceptanceCriteria": [
+        "App header prominently displays “DeltaV3” and/or “DeltaV3.org”.",
+        "Default styling uses a black background with purple accents (buttons, focus rings, highlights).",
+        "Document title includes DeltaV3.org.",
+        "All primary screens share consistent spacing/typography/color tokens (no mixed themes)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update document title and relevant metadata to include DeltaV3.org (and align with the branded, domain-style aesthetic)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles and Tailwind/CSS-variable theme tokens with a black background and purple primary accent as the default; ensure consistent typography/spacing across the app."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement the global UI shell (header/main/footer) with a consistent ‘domain-style’ layout and shared styling across screens; include primary navigation between Search and Settings. Use shadcn-ui components (e.g., Button, Tabs/Navigation primitives) for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create a reusable layout component (header/main/footer) used by the App shell to ensure consistent spacing/typography/color tokens across all screens. Use shadcn-ui components where appropriate; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add the uploaded image as the site logo used in the header (static frontend asset, unmodified).",
+      "acceptanceCriteria": [
+        "The logo displayed in the UI matches the uploaded image (148783974.png).",
+        "Logo renders crisply at common sizes (e.g., ~32–64px in the header) without distortion.",
+        "Logo is included as a frontend static asset (not served from backend)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/148783974.png",
+          "operation": "create",
+          "description": "Add the uploaded logo image as a static frontend asset (exact file content preserved; no alteration)."
+        },
+        {
+          "path": "frontend/src/components/branding/Logo.tsx",
+          "operation": "create",
+          "description": "Create a Logo component that renders the static asset crisply (appropriate sizing, aspect ratio preserved) for use in the header and other branding locations as needed."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Wire the Logo component into the header branding area alongside “DeltaV3”/“DeltaV3.org” text for prominent identification."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement an in-app DuckDuckGo search experience (Instant Answer API when possible) with loading/error states, results list, and fallback to opening DuckDuckGo in a new tab when browser restrictions prevent fetching.",
+      "acceptanceCriteria": [
+        "User can enter a query and submit via button and Enter key.",
+        "UI shows a loading indicator while the request is in-flight and an error message on failure.",
+        "Search results render in a list with titles/snippets when available and clickable outbound links.",
+        "If the chosen DuckDuckGo endpoint cannot be fetched due to browser restrictions (e.g., CORS), the app provides a clear fallback action to open the query on https://duckduckgo.com/?q=<query> in a new tab."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SearchPage.tsx",
+          "operation": "create",
+          "description": "Create the Search page UI: query input, submit action (button + Enter), loading indicator, error display, and results list with outbound clickable links. Use shadcn-ui components (e.g., Input, Button, Card/Separator) to keep styling consistent; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/duckduckgo.ts",
+          "operation": "create",
+          "description": "Add a small client helper to query a legal/public DuckDuckGo API (e.g., Instant Answer API), normalize results for the UI, and surface fetch failures so the UI can show the required fallback action."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Search page into the app’s navigation and main content area so it is reachable as a primary screen (alongside Settings). Use shadcn-ui navigation primitives if used; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add a Settings tab/page to customize theme colors (at least primary accent), apply immediately across the app, and persist locally without login.",
+      "acceptanceCriteria": [
+        "There is a visible “Settings” navigation entry/tab.",
+        "Settings allow changing at least the primary accent color used throughout the UI.",
+        "Theme updates apply immediately across all pages/components.",
+        "Theme preference persists locally on the device (e.g., localStorage) and does not require login."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/theme/theme.ts",
+          "operation": "create",
+          "description": "Define theme token handling for the app (at minimum: primary accent color), including conversion/validation needed to apply the chosen color to CSS variables used across the UI."
+        },
+        {
+          "path": "frontend/src/theme/ThemeProvider.tsx",
+          "operation": "create",
+          "description": "Implement a ThemeProvider that applies theme tokens globally (e.g., via CSS variables on the root element), persists user preference to localStorage, and restores it on load without requiring login."
+        },
+        {
+          "path": "frontend/src/pages/SettingsPage.tsx",
+          "operation": "create",
+          "description": "Create the Settings page UI with controls to change the primary accent color and see immediate app-wide updates. Use shadcn-ui components (e.g., Input, Button, Tabs, Card) for consistent UI; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Wrap the app with ThemeProvider so theme changes apply globally and are restored on startup."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Settings page into the app’s navigation/main content as a visible “Settings” entry/tab (no auth required). Use shadcn-ui components if used; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Ensure the app does not store users’ search queries/history (no on-site persistence or UI history list; theme persistence allowed).",
+      "acceptanceCriteria": [
+        "No backend endpoints or stable storage are used to store queries or search history.",
+        "The UI does not display a “recent searches” or history list.",
+        "No code writes search queries to localStorage/indexedDB/cookies for history purposes (theme settings persistence is allowed)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SearchPage.tsx",
+          "operation": "modify",
+          "description": "Ensure search queries are held only in ephemeral in-memory state; do not write queries to localStorage/indexedDB/cookies and do not render any ‘recent searches’/history UI. Confirm fallback-to-new-tab does not persist queries beyond the immediate navigation."
+        },
+        {
+          "path": "frontend/src/lib/duckduckgo.ts",
+          "operation": "modify",
+          "description": "Ensure the search helper does not add any persistence (no caching to storage) and only returns in-memory results for the current request."
+        },
+        {
+          "path": "frontend/src/theme/ThemeProvider.tsx",
+          "operation": "modify",
+          "description": "Limit local persistence to theme settings only; ensure no accidental persistence of search inputs/results is introduced via shared storage utilities."
+        }
+      ]
+    }
+  ]
+}
